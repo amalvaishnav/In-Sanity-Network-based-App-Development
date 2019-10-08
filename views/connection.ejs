@@ -7,25 +7,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="headerContainer">
-        <div class="logoContainer">
-          <a href="index.html"> <img src="logo.png" alt="logo"/></a>
-        </div>
-        <div class="Navbar">
-          <ul>
-            <li><a href="#start">Start a new Connection</a></li>
-            <li><a href="savedConnection.html">Login</a></li>
-            <li><a href="savedConnection.html">Sign Up</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="Navbar2">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="connections.html">Connection</a></li>
-          <li><a href="#start" class="loginName">Hi, Amal</a></li>
-        </ul>
-      </div>
+      <% include partials/nav.ejs%>
       <div class="main mainConnection">
         <div class="leftMain">
           <h2>Blood Donation Camp</h2>
@@ -48,21 +30,7 @@
           </form>
         </div>
       </div>
-      <div class="footer">
-        <ul class="copyright">
-          <li><a href="#start">@Copyright</a></li>
-          <li><a href="#start">About</a></li>
-          <li><a href="#start">Plz don't Contact Us</a></li>
-        </ul>
-        <ul class="additionalLinks">
-          <li>
-            <a href="index.html"> <img src="fb.png" alt="fb"/></a>
-          </li>
-          <li>
-            <a href="index.html"> <img src="ln.png" alt="linkedin"/></a>
-          </li>
-        </ul>
-      </div>
+      <% include partials/footer.ejs%>
     </div>
   </body>
 </html>
