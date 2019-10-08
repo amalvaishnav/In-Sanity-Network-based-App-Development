@@ -1,0 +1,173 @@
+.container {
+  width: 90%;
+  background-color: #f0f5f1;
+  margin-left: auto;
+  margin-right: auto;
+}
+.headerContainer {
+  height: 90px;
+  font-family: "Courier New";
+  font-weight: 700;
+}
+.logoContainer {
+  float: left;
+}
+.logoContainer > a > img {
+  margin-left: 20px;
+  height: 90px;
+  width: 180px;
+}
+
+.Navbar {
+  float: right;
+  font-size: 18;
+}
+.Navbar > ul {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.Navbar > ul > li {
+  float: left;
+}
+
+.Navbar > ul > li a {
+  display: block;
+  color: #4a5491;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.Navbar > ul > li a:hover {
+  color: white;
+  background-color: #4a5491;
+}
+
+.Navbar2 {
+  width: 100%;
+  margin: 0px !important;
+  float: left;
+  font-family: Palatino;
+  font-size: 18;
+  clear: both;
+}
+
+.Navbar2 > ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4a5491;
+}
+
+.Navbar2 > ul > li {
+  float: left;
+}
+
+.Navbar2 > ul > li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.Navbar2 > ul > li a:hover {
+  color: #4a5491;
+  background-color: #f0f5f1;
+}
+.loginName{
+    color: orange !important;
+ 
+}
+.main {
+  width: 48%;
+  margin: auto;
+  padding-top:180px;
+  color: #4a5491;
+  padding-bottom:180px;
+}
+.main > p{
+    font-size: 20px;
+}
+
+.footer {
+  width: 100%;
+  margin: 0px !important;
+  float: left;
+  font-size: 18;
+  clear: both;
+  background-color: #4a5491;
+}
+
+.footer > ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.footer > ul > li {
+  float: left;
+}
+
+.footer > ul > li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.copyright  > li> a:hover {
+  color: #4a5491;
+  background-color: #f0f5f1;
+}
+.footer > .copyright {
+  float: left;
+}
+.footer > .additionalLinks {
+  float: right;
+}
+.copyright{
+    float:left;
+}
+.additionalLinks>li > a > img {
+  height: 45px;
+  width: 45px;
+  float:right;
+  margin-right: 10px;
+}
+
+.leftMain{
+    width: 60%;
+
+}
+.rightMain{
+    
+    margin-top:30px;
+    
+}
+.imghost>img{
+    height:150px;
+    width:110px;
+}
+.btn{
+    background-color: rgb(57, 62, 131); 
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    cursor: pointer;
+} 
+
+.btn2{
+    padding: 10px;   
+}
+table, th, td {
+    border: 1px solid black;
+  }
+
