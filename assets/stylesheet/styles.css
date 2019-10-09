@@ -171,3 +171,33 @@ table, th, td {
     border: 1px solid black;
   }
 
+#connectionForm > label{
+  display: block;
+  float:left;
+  width:35% !important;
+  margin-top:15px;
+  clear:left;
+}
+
+#connectionForm > input{
+  margin-top: 15px;
+}
+
+#connectionForm > textarea{
+  float:left;
+  margin-top: 15px;
+}
+
+.butSubmit{
+  background-color: #4a5491;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+

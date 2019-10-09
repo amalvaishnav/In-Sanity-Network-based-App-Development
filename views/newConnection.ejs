@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../assets/stylesheet/styles.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <% include partials/header.ejs%>
+      <div class="main mainConnection">
+        <h2>Create New Connection</h2>
+        <form action="" method="post" id="connectionForm">
+          <label for="topic">Topic </label>
+          <input
+            id="topic"
+            type="text"
+            name="topic"
+            placeholder="topic"
+          /><br />
+          <label for="ConnName">Name </label>
+          <input id="ConnName" type="text" name="ConnName" placeholder="Name" /><br />
+          <label for="ConnDetails">Details </label>
+          <textarea
+            rows="4"
+            cols="50"
+            id="ConnDetails"
+            name="ConnDetails"
+            form="connectionForm"
+          >description
+            </textarea><br />
+          <label for="location">Where </label>
+          <input
+            id="location"
+            type="text"
+            name="location"
+            placeholder="location"
+          /><br />
+          <label for="date">Date </label>
+          <input type="date" name="date" /><br />
+          <input class='butSubmit' type="submit" value="Create Connection" />
+        </form>
+      </div>
+      <% include partials/footer.ejs%>
+    </div>
+  </body>
+</html>

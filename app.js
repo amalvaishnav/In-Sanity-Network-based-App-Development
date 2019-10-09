@@ -9,7 +9,7 @@ app.use('/assets', express.static('assets'));
 //app.use(express.static(path.join(__dirname, 'assets/stylesheet')));
 
 app.get("/", function(req, res){
-    res.render('index');
+    res.render('newConnection');
 })
 
 app.listen(8080);
