@@ -9,22 +9,20 @@
     <div class="container">
       <% include partials/header.ejs%>
       <div class="main connectMain">
-        <h2>HealthCare</h2>
-        <ol>
-          <li><a href="connection">Set up Blood Donation Camp</a></li>
-          <li><a href="connection">Set up Regular Checkup</a></li>
-          <li><a href="connection">Set up Vaccine</a></li>
-        </ol>
-        <h2>Fitness</h2>
-        <ol>
-          <li>
-            <a href="connection"
-              >Nutrients and diet Awareness Conference</a
-            >
-          </li>
-          <li><a href="connection">Excercises and More</a></li>
-          <li><a href="connection">TBD</a></li>
-        </ol>
+        <h2>Healthcare</h2>
+          <ol class="connList">
+            <% connectionObj.forEach(function(item){ %>
+              <%if (item.topic == 'Healthcare'){ %>
+                <li><%= item.ConnName%></li>                            
+            <%}}); %>
+          </ol>
+        <h2>Fitness</h2> 
+           <ol class="connList">
+            <% connectionObj.forEach(function(item){ %>
+              <%if (item.topic == 'Fitness'){ %>
+                <li><%= item.ConnName%></li>                            
+            <%}}); %>
+          </ol>
       </div>
       <% include partials/footer.ejs%>
     </div>

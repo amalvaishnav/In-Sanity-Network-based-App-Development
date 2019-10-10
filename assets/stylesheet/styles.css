@@ -201,3 +201,6 @@ table, th, td {
   cursor: pointer;
 }
 
+.connList{
+  font-size: 24px;
+}
