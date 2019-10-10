@@ -179,7 +179,7 @@ table, th, td {
   clear:left;
 }
 
-#connectionForm > input{
+#connectionForm > input,select{
   margin-top: 15px;
 }
 

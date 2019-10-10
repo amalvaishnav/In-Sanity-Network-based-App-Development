@@ -16,12 +16,11 @@
         <h2>Create New Connection</h2>
         <form action="" method="post" id="connectionForm">
           <label for="topic">Topic </label>
-          <input
-            id="topic"
-            type="text"
-            name="topic"
-            placeholder="topic"
-          /><br />
+          <select id="topic">  
+              <option value="Healthcare"  selected="selected">Healthcare</option>
+              <option value="Fitness">Fitness</option>
+          </select>
+          <br />
           <label for="ConnName">Name </label>
           <input id="ConnName" type="text" name="ConnName" placeholder="Name" /><br />
           <label for="ConnDetails">Details </label>
@@ -42,6 +41,8 @@
           /><br />
           <label for="date">Date </label>
           <input type="date" name="date" /><br />
+          <label for="time">Time </label>
+          <input type="time" name="time" /> (00:00 to 23:59)<br />
           <input class='butSubmit' type="submit" value="Create Connection" />
         </form>
       </div>

@@ -1,0 +1,56 @@
+[
+  {
+    "uid": "nbad_12345",
+    "topic": "Healthcare",
+    "ConnName": "Blood Donation Camp",
+    "details": "It is an event where all the donors can donate blood and get something in return",
+    "date": "12-04-2020",
+    "time": "12:30",
+    "location": "Time Square, NY"
+  },
+  {
+    "uid": "nbad_22212",
+    "topic": "Healthcare",
+    "ConnName": "Regular Checkup",
+    "details": "It is an event for regular checkup. All the doctors will be there to check you.",
+    "date": "21-04-2020",
+    "time": "21:30",
+    "location": "Dillard Dr, Cary"
+  },
+  {
+    "uid": "nbad_23423",
+    "topic": "Healthcare",
+    "ConnName": "Regular Checkup",
+    "details": "It is an event for regular checkup. All the doctors will be there to check you.",
+    "date": "21-04-2020",
+    "time": "2:30",
+    "location": "Dillard Dr, Cary"
+  },
+  {
+    "uid": "nbad_11111",
+    "topic": "Fitness",
+    "ConnName": "Nutrients-diet awareness Conference",
+    "details": "It is an event for Nutrients-diet awareness",
+    "date": "02-05-2020",
+    "time": "15:00",
+    "location": "UNC Charlotte"
+  },
+  {
+    "uid": "nbad_22222",
+    "topic": "Fitness",
+    "ConnName": "Importance of excercise seminar",
+    "details": "It is an event for Importance of excercise by fitness Experts",
+    "date": "04-06-2020",
+    "time": "22:30",
+    "location": "Sacremanto, CA"
+  },
+  {
+    "uid": "nbad_33333",
+    "topic": "Fitness",
+    "ConnName": "Running Fall Marathon",
+    "details": "There is a marathon starting from the university and ending uptown Charlotte",
+    "date": "21-04-2020",
+    "time": "6:30",
+    "location": "Student Union,UNC  Charlotte"
+  }
+]
