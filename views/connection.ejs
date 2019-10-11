@@ -8,28 +8,9 @@
   <body>
     <div class="container">
       <% include partials/header.ejs%>
-      <div class="main mainConnection">
-        <div class="leftMain">
-          <h2>Blood Donation Camp</h2>
-          <div class="imghost">
-            <img src="./../assets/images/host.jpg" alt="host" />
-            <h4>Hosted by : Dr. Ross Geller</h4>
-            Venue : NYU University, NY <br/>Sunday, October 20, 2019 <br/>4-5 PM
-          </div>
-          <h2>Details</h2>
-          This will be open to all eligible donors and as a return gift
-          everybody will be get something.
-        </div>
-        <div class="rightMain">
-          <h2>RSVP Here</h2>
-          <form action="savedConnection.ejs">
-            <input class="btn" type="submit" value="Yes" />
-            <input class="btn" type="submit" value="Possibly"/>
-            <input class="btn" type="submit" value="No"/>
-            <input class="btn" type="submit" value="Save for later"/>
-          </form>
-        </div>
-      </div>
+      <h4>
+        <%= connectionObj.details%>
+      </h4>
       <% include partials/footer.ejs%>
     </div>
   </body>

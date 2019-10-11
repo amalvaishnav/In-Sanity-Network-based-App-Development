@@ -35,11 +35,8 @@ app.get("/savedConnection", function(req,res){
     res.render('savedConnection');
 })
 
-// app.get("/connections", function(req,res){
-//     res.render('connections');
-// })
 app.use("/connections", getConnections);
-//app.use("/savedConnection", getSingleConnection);
+app.use("/connection", getSingleConnection);
 
 
 app.get("/*", function(req, res){

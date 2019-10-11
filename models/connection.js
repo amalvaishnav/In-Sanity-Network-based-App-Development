@@ -1,6 +1,7 @@
-var uniqid = require("uniqid");
-var connection = function(topic, name, details, date, time, location) {
-  var uid = uniqid("nbad_");
+//var uniqid = require("uniqid");
+var connection = function(uid, topic, name, details, date, time, location) {
+  // Creation of unique id dynamically will be required in the future
+  //var uid = uniqid("nbad_");
   var connectionModel = {
     uid: uid,
     topic: topic,
@@ -10,6 +11,7 @@ var connection = function(topic, name, details, date, time, location) {
     time: time,
     location: location
   };
+  console.log('mdl:',connectionModel);
   return connectionModel;
 };
 

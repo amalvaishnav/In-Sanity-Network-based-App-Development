@@ -204,3 +204,7 @@ table, th, td {
 .connList{
   font-size: 24px;
 }
+
+.topicList:hover{
+  text-decoration-color:green;
+}

@@ -13,14 +13,14 @@
           <ol class="connList">
             <% connectionObj.forEach(function(item){ %>
               <%if (item.topic == 'Healthcare'){ %>
-                <li><%= item.ConnName%></li>                            
+                <a href="connection?connectionID=<%=item.uid%>" class="topicList"><li><%= item.ConnName%></li></a>                            
             <%}}); %>
           </ol>
         <h2>Fitness</h2> 
            <ol class="connList">
             <% connectionObj.forEach(function(item){ %>
               <%if (item.topic == 'Fitness'){ %>
-                <li><%= item.ConnName%></li>                            
+                <a href="connection?connectionID=<%=item.uid%>"  class="topicList"><li><%= item.ConnName%></li></a>                           
             <%}}); %>
           </ol>
       </div>
