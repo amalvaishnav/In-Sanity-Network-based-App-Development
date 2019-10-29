@@ -2,15 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="./../assets/stylesheet/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../assets/stylesheet/styles.css"
+    />
     <title>Home</title>
   </head>
   <body>
     <div class="container">
       <% include partials/header.ejs%>
-      <h4>
-        <%= connectionObj.details%>
-      </h4>
+      <div class="main mainConnection">
+        <div class="leftMain">
+          <h2><%= connectionObj.connName%></h2>
+          <div class="imghost">
+            <img src="./../assets/images/host.jpg" alt="host" /><br />
+            <h3>
+              Location : <%= connectionObj.location%> <br />
+              Date : <%= connectionObj.date%> <br />
+              Time :<%= connectionObj.time%>
+            </h3>
+          </div>
+          <h2>Details</h2>
+          <%= connectionObj.details%>
+        </div>
+        <div class="rightMain">
+          <h2>RSVP Here</h2>
+          <form action="savedConnection">
+            <input class="btn" type="submit" value="Yes" />
+            <input class="btn" type="submit" value="Possibly" />
+            <input class="btn" type="submit" value="No" />
+            <input class="btn" type="submit" value="Save for later" />
+          </form>
+        </div>
+      </div>
       <% include partials/footer.ejs%>
     </div>
   </body>

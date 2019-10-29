@@ -76,19 +76,18 @@
   color: #4a5491;
   background-color: #f0f5f1;
 }
-.loginName{
-    color: orange !important;
- 
+.loginName {
+  color: orange !important;
 }
 .main {
   width: 48%;
   margin: auto;
-  padding-top:180px;
+  padding-top: 180px;
   color: #4a5491;
-  padding-bottom:180px;
+  padding-bottom: 180px;
 }
-.main > p{
-    font-size: 20px;
+.main > p {
+  font-size: 20px;
 }
 
 .footer {
@@ -117,7 +116,7 @@
   padding: 14px 16px;
   text-decoration: none;
 }
-.copyright  > li> a:hover {
+.copyright > li > a:hover {
   color: #4a5491;
   background-color: #f0f5f1;
 }
@@ -127,68 +126,68 @@
 .footer > .additionalLinks {
   float: right;
 }
-.copyright{
-    float:left;
+.copyright {
+  float: left;
 }
-.additionalLinks>li > a > img {
+.additionalLinks > li > a > img {
   height: 45px;
   width: 45px;
-  float:right;
+  float: right;
   margin-right: 10px;
 }
 
-.leftMain{
-    width: 60%;
+.leftMain {
+  width: 60%;
+}
+.rightMain {
+  margin-top: 30px;
+}
+.imghost > img {
+  height: 150px;
+  width: 110px;
+}
+.btn {
+  background-color: rgb(57, 62, 131);
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+.btn2 {
+  padding: 10px;
 }
-.rightMain{
-    
-    margin-top:30px;
-    
+table,
+th,
+td {
+  border: 1px solid black;
 }
-.imghost>img{
-    height:150px;
-    width:110px;
-}
-.btn{
-    background-color: rgb(57, 62, 131); 
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    border-radius: 4px;
-    cursor: pointer;
-} 
 
-.btn2{
-    padding: 10px;   
-}
-table, th, td {
-    border: 1px solid black;
-  }
-
-#connectionForm > label{
+#connectionForm > label {
   display: block;
-  float:left;
-  width:35% !important;
-  margin-top:15px;
-  clear:left;
+  float: left;
+  width: 35% !important;
+  margin-top: 15px;
+  clear: left;
 }
 
-#connectionForm > input,select{
+#connectionForm > input,
+select {
   margin-top: 15px;
 }
 
-#connectionForm > textarea{
-  float:left;
+#connectionForm > textarea {
+  float: left;
   margin-top: 15px;
 }
 
-.butSubmit{
+.butSubmit {
   background-color: #4a5491;
   border: none;
   color: white;
@@ -201,10 +200,10 @@ table, th, td {
   cursor: pointer;
 }
 
-.connList{
+.connList {
   font-size: 24px;
 }
 
-.topicList:hover{
-  text-decoration-color:green;
+.topicList:hover {
+  text-decoration-color: green;
 }

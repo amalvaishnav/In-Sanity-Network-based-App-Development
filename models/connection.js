@@ -1,4 +1,4 @@
-//var uniqid = require("uniqid");
+//I have created a model which takes everything (including parameterised uuid) and send it back in a given format as an object
 var connection = function(uid, topic, name, details, date, time, location) {
   // Creation of unique id dynamically will be required in the future
   //var uid = uniqid("nbad_");
@@ -11,7 +11,6 @@ var connection = function(uid, topic, name, details, date, time, location) {
     time: time,
     location: location
   };
-  console.log('mdl:',connectionModel);
   return connectionModel;
 };
 

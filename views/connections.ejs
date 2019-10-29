@@ -2,27 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="./../assets/stylesheet/styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../assets/stylesheet/styles.css"
+    />
     <title>Home</title>
   </head>
   <body>
     <div class="container">
       <% include partials/header.ejs%>
       <div class="main connectMain">
-        <h2>Healthcare</h2>
-          <ol class="connList">
-            <% connectionObj.forEach(function(item){ %>
-              <%if (item.topic == 'Healthcare'){ %>
-                <a href="connection?connectionID=<%=item.uid%>" class="topicList"><li><%= item.ConnName%></li></a>                            
-            <%}}); %>
-          </ol>
-        <h2>Fitness</h2> 
-           <ol class="connList">
-            <% connectionObj.forEach(function(item){ %>
-              <%if (item.topic == 'Fitness'){ %>
-                <a href="connection?connectionID=<%=item.uid%>"  class="topicList"><li><%= item.ConnName%></li></a>                           
-            <%}}); %>
-          </ol>
+        <% unique_topic.forEach(function(topic){ %>
+        <h2><%= topic %></h2>
+        <ol>
+          <% connectionObj.forEach(function(item){ %> <% if(item.topic ==
+          topic){ %>
+          <li>
+            <a class="topicList" href="connection?connectionID=<%=item.uid%>">
+              <%= item.ConnName %>
+            </a>
+          </li>
+          <% }}); %>
+        </ol>
+        <br />
+        <% }); %>
       </div>
       <% include partials/footer.ejs%>
     </div>
