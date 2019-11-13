@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <% include partials/header.ejs%>
+      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
       <div class="main mainConnection">
         <div class="leftMain">
           <h2><%= connectionObj.connName%></h2>
@@ -28,12 +28,27 @@
         </div>
         <div class="rightMain">
           <h2>RSVP Here</h2>
-          <form action="savedConnection">
-            <input class="btn" type="submit" value="Yes" />
-            <input class="btn" type="submit" value="Possibly" />
-            <input class="btn" type="submit" value="No" />
-            <input class="btn" type="submit" value="Save for later" />
-          </form>
+          <!-- <form action="myConnections" method="GET">
+            <button class="btn" type="submit" value="Yes" >Yes</button>
+            <button class="btn" type="submit" value="Possibly" >Possibly</button>
+            <button class="btn" type="submit" value="No" >No</button>
+            <button class="btn" type="submit" value="Save for later" >Save for Later</button>
+          </form> -->
+          <a
+            href="/myConnections?action=add&rsvp=Yes&connectionId=<%= connectionObj.uid %>"
+          >
+            <input name="rsvp" class="btn" type="submit" value="Yes" />
+          </a>
+          <a
+            href="/myConnections?action=add&rsvp=No&connectionId=<%= connectionObj.uid %>"
+          >
+            <input name="rsvp" class="btn" type="submit" value="No"
+          /></a>
+          <a
+            href="/myConnections?action=add&rsvp=Maybe&connectionId=<%= connectionObj.uid %>"
+          >
+            <input name="rsvp" class="btn" type="submit" value="Maybe"
+          /></a>
         </div>
       </div>
       <% include partials/footer.ejs%>

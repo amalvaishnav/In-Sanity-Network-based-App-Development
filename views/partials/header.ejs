@@ -2,7 +2,9 @@
   <div class="logoContainer">
     <a href="index"> <img src="./../../assets/images/logo.png" alt="logo"/></a>
   </div>
-  <% include navbars/navbar1.ejs%>
+  <!-- <% include navbars/navbar1.ejs%> -->
+  <%- include('navbars/navbar1.ejs', {loginFlag: loginFlag}) %>
 </div>
 
-<% include navbars/navbar2.ejs%>
+<!-- <% include navbars/navbar2.ejs%> -->
+<%- include('navbars/navbar2.ejs', {loginFlag: loginFlag}) %>

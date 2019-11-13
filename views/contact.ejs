@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <% include partials/header.ejs%>
+      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
       <div class="main">
         <h1>
           Contact Us <br />

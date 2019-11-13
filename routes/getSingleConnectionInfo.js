@@ -6,10 +6,11 @@ var router = express.Router();
 router.get("/", function(req, res) {
   var connectionModel = require("./../models/connection");
   var getDB = require("./../util/connectionDB");
-  console.log(req.query.connectionID);
   if (req.query.connectionID) {
     var connectionSingleData = getDB.getConnection(req.query.connectionID);
-    console.log(connectionSingleData.ConnName);
+    if (connectionSingleData==null){
+      res.render("404", { loginFlag:req.session.loginFlag});
+    }
     connectionModel = connectionModel.connection(
       connectionSingleData.uid,
       connectionSingleData.topic,
@@ -19,7 +20,7 @@ router.get("/", function(req, res) {
       connectionSingleData.time,
       connectionSingleData.location
     );
-    res.render("connection", { connectionObj: connectionModel });
+    res.render("connection", { connectionObj: connectionModel ,  loginFlag:req.session.loginFlag});
   } else {
     res.send("Invalid info");
   }

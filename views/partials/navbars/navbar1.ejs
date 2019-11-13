@@ -1,7 +1,15 @@
 <div class="Navbar">
   <ul>
-    <li><a href="newConnection">Start a new Connection</a></li>
-    <li><a href="savedConnection">Login</a></li>
-    <li><a href="savedConnection">Sign Up</a></li>
+    
+    
+    <%if ( loginFlag===true ) { %>
+      <li><a href="newConnection">Start a new Connection</a></li>
+      <li><a href="myConnections?action=BlankLoginNoParams">My connections</a></li>
+      <li><a href="logout">Logout</a></li>
+    <%}else{%>
+      <li><a href="myConnections?action=BlankLoginNoParams">Start a new Connection</a></li>
+      <li><a href="myConnections?action=BlankLoginNoParams">My connections</a></li>
+      <li><a href="myConnections?action=BlankLoginNoParams">Login</a></li>
+    <%}%>  
   </ul>
 </div>

@@ -8,10 +8,9 @@ router.get("/", function(req, res) {
   //getDB  above is function created 
   //in util folder for getting a database "connectiondata.json"
   var unique_topic = [...new Set(connectionsData.map(data=>data.topic))]
-  console.log(unique_topic);
   if (connectionsData) {
   }
-  res.render("connections", { connectionObj: connectionsData, unique_topic:unique_topic });
+  res.render("connections", { connectionObj: connectionsData, unique_topic:unique_topic, loginFlag:req.session.loginFlag });
 });
 
 module.exports = router;

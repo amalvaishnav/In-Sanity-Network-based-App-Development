@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <% include partials/header.ejs%>
+      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
       <div class="main">
         <h2>All Connections</h2>
         <table>
@@ -21,19 +21,22 @@
             <th>Going?</th>
             <th>Events</th>
           </tr>
-          <tr>
-            <td>Blood Donation Camp</td>
-            <td>health</td>
-            <td>yes</td>
+          <% myConnection_data.forEach(function(myConnection){ %>
+            <tr>
+            <td><%= myConnection.ConnName %></td>
+            <td><%= myConnection.topic %></td>
+            <td><%= myConnection.rsvp %></td>
             <td>
-              <form action="connections">
+              <a href="/connection?connectionID=<%= myConnection.ConnId %>">
                 <input class="btn btn2" type="submit" value="Update" />
-              </form>
-              <form action="savedConnection">
+              </a>
+          
+              <a href="/myConnections?action=delete&connectionId=<%= myConnection.ConnId %>">  
                 <input class="btn btn2" type="submit" value="Delete" />
-              </form>
+              </a>
             </td>
           </tr>
+          <% }); %>
         </table>
       </div>
       <% include partials/footer.ejs%>

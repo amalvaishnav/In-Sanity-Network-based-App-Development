@@ -1,0 +1,12 @@
+[{
+    "userId": 1111,
+    "firstName": "Amal",
+    "lastName":"Vaishnav",
+    "email":"avaishna@uncc.edu"
+},
+{
+    "userId": 2222,
+    "firstName": "David",
+    "lastName":"Beckhem",
+    "email":"db@db.edu"
+}]

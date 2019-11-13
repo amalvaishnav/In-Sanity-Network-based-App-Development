@@ -17,6 +17,7 @@ var getConnection = function(id) {
       return connectionData[i];
     }
   }
+  
 };
 
 module.exports = {
