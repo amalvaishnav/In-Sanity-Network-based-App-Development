@@ -1,25 +1,25 @@
 const fs = require("fs");
 const path = require("path");
-const certPath = path.join(__dirname, "/connectionPerUser.json");
-const rawdata = fs.readFileSync(certPath);
+// const certPath = path.join(__dirname, "/connectionPerUser.json");
+// const rawdata = fs.readFileSync(certPath);
+// var ConnectionPerUserData = JSON.parse(rawdata);
 
-var ConnectionPerUserData = JSON.parse(rawdata);
-var ConnObjGlobal=[]
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/myEvents");
+var userConnectionInfo = require("../models/userConnection");
 
-//Each connections for particular use is controlled here.
 var getConnectionPerUser = function(id) {
-    var ConnObj=[];
-    for (var i in ConnectionPerUserData) {
-        if (ConnectionPerUserData[i].userId == id) {
-            ConnObj = ConnObj.concat(ConnectionPerUserData[i]);
-            ConnObjGlobal = ConnObj;
-            
-        }
+  return userConnectionInfo.find({ userId: id }, function(err, resArray) {
+    if (err) throw err;
+    if (resArray) {
+      //console.log("ucucuc", resArray);
+      return resArray;
+    } else {
+      return null;
     }
-    return ConnObjGlobal;
+  });
 };
 
 module.exports = {
-    getConnectionPerUser: getConnectionPerUser,
+  getConnectionPerUser: getConnectionPerUser
 };
-  

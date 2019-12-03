@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../assets/stylesheet/styles.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
+      <div class="main mainConnection">
+        <h2>Create New Connection</h2>
+        <form id="connectionForm" method="POST" action="/login">
+          <label for="userName">Username </label>
+
+          <input id="userName" type="text" name="userName" placeholder="UserName" />
+          <br />
+          <label for="password">Password </label>
+          <input
+            id="password"
+            type="text"
+            name="password"
+            placeholder="password"
+          /><br />
+          <input class="butSubmit" type="submit" value="Submit" />
+        </form>
+      </div>
+      <% include partials/footer.ejs%>
+    </div>
+  </body>
+</html>

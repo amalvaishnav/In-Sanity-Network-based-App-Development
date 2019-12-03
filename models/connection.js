@@ -1,17 +1,43 @@
-//I have created a model which takes everything (including parameterised uuid) and send it back in a given format as an object
-var connection = function(uid, topic, name, details, date, time, location) {
-  // Creation of unique id dynamically will be required in the future
-  //var uid = uniqid("nbad_");
-  var connectionModel = {
-    uid: uid,
-    topic: topic,
-    connName: name,
-    details: details,
-    date: date,
-    time: time,
-    location: location
-  };
-  return connectionModel;
-};
+var mongoose = require("mongoose");
+var autoIncrement = require("mongoose-auto-increment");
+var connectionSchema = new mongoose.Schema({
+  uid: {
+    type: String,
+    required: true
+  },
+  topic: {
+    type: String,
+    required: "Please provide topic."
+  },
+  ConnName: {
+    type: String,
+    required: "Please provide Connection Name."
+  },
+  details: {
+    type: String,
+    required: "Please provide some details."
+  },
+  date: {
+    type: String,
+    required: "Please provide date."
+  },
+  time: {
+    type: String,
+    required: "Please provide time."
+  },
+  location: {
+    type: String,
+    required: "Please provide location."
+  }
+}, { collection: "connectionData" });
 
-module.exports.connection = connection;
+// autoIncrement.initialize(mongoose.connection);
+// connectionSchema.plugin(autoIncrement.plugin, {
+//   model: "connection",
+//   field: "uid",
+//   startAt: 10000,
+//   incrementBy: 1
+// });
+
+// module.exports.connection = connection;
+module.exports = mongoose.model("connection", connectionSchema);

@@ -1,0 +1,116 @@
+use myEvents
+db.createCollection("userData")
+db.createCollection("connectionData")
+db.createCollection("connectionPerUserData")
+db.userData.insert([{
+    "userId": "u1111",
+    "firstName": "Amal",
+    "lastName":"Vaishnav",
+    "email":"avaishna@uncc.edu"
+},
+{
+    "userId": "u2222",
+    "firstName": "David",
+    "lastName":"Beckhem",
+    "email":"db@db.edu"
+}])
+db.connectionData.insert([
+  {
+    "uid": "nbad_12345",
+    "topic": "Health Social Work",
+    "ConnName": "Blood Donation Camp",
+    "details": "It is an event where all the donors can donate blood and get something in return",
+    "date": "12-04-2020",
+    "time": "12:30",
+    "location": "Time Square, NY"
+  },
+  {
+    "uid": "nbad_22212",
+    "topic": "Healthcare",
+    "ConnName": "Regular Checkup",
+    "details": "It is an event for regular checkup. All the doctors will be there to check you.",
+    "date": "21-04-2020",
+    "time": "21:30",
+    "location": "Dillard Dr, Cary"
+  },
+  {
+    "uid": "nbad_23423",
+    "topic": "Healthcare",
+    "ConnName": "Dentist Day",
+    "details": "It is an event for Dentists checkup. All the dentists will be there to check you.",
+    "date": "6-07-2020",
+    "time": "10:30",
+    "location": "University Terrace"
+  },
+  {
+    "uid": "nbad_78787",
+    "topic": "Fitness",
+    "ConnName": "Protein supplement Sale",
+    "details": "It is an event for sale of protein supplements",
+    "date": "16-07-2020",
+    "time": "5:30",
+    "location": "Mallard creek"
+  },
+  {
+    "uid": "nbad_11111",
+    "topic": "Fitness",
+    "ConnName": "Nutrients-diet awareness Conference",
+    "details": "It is an event for Nutrients-diet awareness",
+    "date": "02-05-2020",
+    "time": "15:00",
+    "location": "UNC Charlotte"
+  },
+  {
+    "uid": "nbad_22222",
+    "topic": "Fitness",
+    "ConnName": "Importance of excercise seminar",
+    "details": "It is an event for Importance of excercise by fitness Experts",
+    "date": "04-06-2020",
+    "time": "22:30",
+    "location": "Sacremanto, CA"
+  },
+  {
+    "uid": "nbad_33333",
+    "topic": "Fitness",
+    "ConnName": "Running Fall Marathon",
+    "details": "There is a marathon starting from the university and ending uptown Charlotte",
+    "date": "21-04-2020",
+    "time": "6:30",
+    "location": "Student Union,UNC  Charlotte"
+  }
+]
+)
+db.connectionPerUserData.insert([
+    {
+        "topic": "Healthcare",
+        "ConnName": "Regular Checkup",
+        "rsvp": "No",
+        "userId":"u2222",
+        "uniqueId":1177,
+        "ConnId":"nbad_22212"
+    },
+    {
+        "topic": "Fitness",
+        "ConnName": "Nutrients-diet awareness Conference",
+        "rsvp": "Maybe",
+        "userId":"u2222",
+        "uniqueId":1133,
+        "ConnId":"nbad_11111"
+    },
+    {
+        "topic": "Healthcare",
+        "ConnName": "Regular Checkup",
+        "rsvp": "No",
+        "userId":"u1111",
+        "uniqueId":2211 ,
+        "ConnId":"nbad_22212"     
+    },
+    {
+        "topic": "Fitness",
+        "ConnName": "Nutrients-diet awareness Conference",
+        "rsvp": "Maybe",
+        "userId":"u1111",
+        "uniqueId":8811,
+        "ConnId":"nbad_11111" 
+    }
+])

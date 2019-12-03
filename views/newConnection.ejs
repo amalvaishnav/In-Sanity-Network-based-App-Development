@@ -14,12 +14,10 @@
       <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
       <div class="main mainConnection">
         <h2>Create New Connection</h2>
-        <form  id="connectionForm">
+        <form id="connectionForm" method="POST" action="/newConnectionForm">
           <label for="topic">Topic </label>
-          <select id="topic">
-            <option value="Healthcare" selected="selected">Healthcare</option>
-            <option value="Fitness">Fitness</option>
-          </select>
+
+          <input id="topic" type="text" name="topic" placeholder="topic" />
           <br />
           <label for="ConnName">Name </label>
           <input
@@ -28,18 +26,17 @@
             name="ConnName"
             placeholder="Name"
           /><br />
-          <label for="ConnDetails">Details </label>
+          <label for="details">Details </label>
           <textarea
             rows="4"
             cols="50"
-            id="ConnDetails"
-            name="ConnDetails"
+            id="details"
+            name="details"
             form="connectionForm"
           >
-description
-            </textarea
+description</textarea
           ><br />
-          <label for="location">Where </label>
+          <label for="location">Location </label>
           <input
             id="location"
             type="text"
@@ -47,7 +44,7 @@ description
             placeholder="location"
           /><br />
           <label for="date">Date </label>
-          <input id="date" type="date" name="date" /><br />
+          <input type="date" name="date" /><br />
           <label for="time">Time </label>
           <input id="time" type="time" name="time" /> (00:00 to 23:59)<br />
           <input class="butSubmit" type="submit" value="Create Connection" />

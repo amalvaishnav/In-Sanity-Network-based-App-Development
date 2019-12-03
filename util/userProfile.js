@@ -1,55 +1,74 @@
 var getConnections = require("../util/connectionDB");
-
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/myEvents");
+var userConnnectionInfo = require("../models/userConnection");
+var getConnections = require("../util/connectionDB");
 //Adding a connection || Updating a connection
-var addConnection = function(ConnId, rsvp, userConnections) {
-  var userConnObj = [];
-  for (var i = 0; i < userConnections.length; i++) {
-    var userConnObj = userConnections[i];
-    //If connection already presented, rsvp is changed.
-    if (userConnObj.ConnId == ConnId)
-      return updateConnection(ConnId, rsvp, userConnections, i);
-  }
-  //Otherwise do the new connection
-  var connection = getConnections.getConnection(ConnId);
-  //Invalid Connection id returns 404 by returning null in the controller
-  if (typeof connection == "undefined") {
-    return null;
-  }
-
-  var userConnObj = {
-    topic: connection.topic,
-    ConnName: connection.ConnName,
-    rsvp: rsvp,
-    userId: "u1111",
-    ConnId: ConnId
-  };
-
-  userConnections = userConnections.concat(userConnObj);
-  return userConnections;
-};
-
-//Update connection used in add
-var updateConnection = function(ConnId, rsvp, userConnections, i) {
-  userConnections[i].rsvp = rsvp;
-  return userConnections;
-};
-//Delete a connection
-var removeConnection = function(connId, userConn) {
-  var connection = getConnections.getConnection(connId);
-  if (typeof connection == "undefined") {
-    return null;
-  }  
-  var userConnObj = [];
-  for (var i = 0; i < userConn.length; i++) {
-    if (userConn[i].ConnId == connId) {
-      //pass (DO NOTHING)
-    } else {
-      console.log("Inside else : ", i);
-      userConnObj = userConnObj.concat(userConn[i]);
+var addUpdateConn = async function(ConnId, rsvp, userObj) {
+  //var userConnObj = [];
+  console.log("inside addupdate", ConnId, rsvp);
+  var getConnectionPerUser = await userConnnectionInfo.find(
+    { ConnId: ConnId, userId: userObj.userId },
+    function(err, resConnection) {
+      if (err) throw err;
+      if (resConnection[0]) {
+        console.log("ucucuc", resConnection);
+        return resConnection;
+      } else {
+        console.log("errorConn", err);
+        return null;
+      }
     }
-  }
+  );
 
-  return userConnObj;
+  console.log("Saved connections  ", getConnectionPerUser);
+  if (getConnectionPerUser.length > 0) {
+    await userConnnectionInfo.findOneAndUpdate(
+      { ConnId: ConnId, userId: userObj.userId },
+      { $set: { rsvp: rsvp } },
+      { new: true },
+      function(err, res) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("findUpdate", res);
+        }
+      }
+    );
+    return true;
+  } else if (getConnectionPerUser.length == 0) {
+    var connectionData = await getConnections.getConnection(ConnId);
+    if (!connectionData[0]){
+      return false;
+    }
+    console.log("data connectiondatatata", connectionData);
+    var connectionData = {
+      topic: connectionData[0].topic,
+      ConnName: connectionData[0].ConnName,
+      rsvp: rsvp,
+      ConnId: connectionData[0].uid,
+      userId: userObj.userId
+    };
+    console.log("Final", connectionData);
+    var doc = new userConnnectionInfo(connectionData);
+    console.log("final doc", doc);
+    await doc.save();
+    return true;
+  }
+};
+
+var removeConnection = async function(ConnId, userId) {
+  await userConnnectionInfo.deleteOne(
+    { ConnId: ConnId, userId: userId },
+    function(err, res) {
+      if (err) {
+        console.log("rem err", err);
+        return 0;
+      } else if(res){
+        return res.deletedCount;
+      }
+    }
+  );
 };
 //Emply profile as mentioned in rubrics. For future references
 var emptyProfile = function(sessionTemp) {
@@ -57,4 +76,4 @@ var emptyProfile = function(sessionTemp) {
 };
 
 module.exports.removeConnection = removeConnection;
-module.exports.addConnection = addConnection;
+module.exports.addUpdateConn = addUpdateConn;
