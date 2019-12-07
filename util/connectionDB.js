@@ -32,7 +32,7 @@ function addNewConnection(connectionData) {
      // console.log("respond", res.length);
       if (res.length == 0) {
         var data = new connnectionInfo(connTemp);
-        //console.log(data);
+        console.log("uniqid",data);
         await data.save();
         return 1;
       } else {

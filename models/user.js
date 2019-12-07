@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
-var autoIncrement = require("mongoose-auto-increment");
-
+var autoIncrement = require('mongoose-auto-increment');
 var userSchema = new mongoose.Schema(
   {
     userId: {
@@ -23,7 +22,13 @@ var userSchema = new mongoose.Schema(
   { collection: "userData" }
 );
 
-
 // module.exports.user = user;
+
+// userSchema.plugin(autoIncrement.plugin,{
+//   model:'user',
+//   field:'userId',
+//   startAt:10000,
+//   incrementBy: 2
+// })
 
 module.exports = mongoose.model("user", userSchema);

@@ -13,8 +13,9 @@
     <div class="container">
       <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
       <div class="main mainConnection">
-        <h2>Create New Connection</h2>
-        <form id="connectionForm" method="POST" action="/login">
+        <h2>Login now</h2>
+        <h3 class="invalid"><%= invalidText %></h3>
+        <form id="connectionForm" method="POST" action="/myConnections">
           <label for="userName">Username </label>
 
           <input id="userName" type="text" name="userName" placeholder="UserName" />
@@ -22,7 +23,7 @@
           <label for="password">Password </label>
           <input
             id="password"
-            type="text"
+            type="password"
             name="password"
             placeholder="password"
           /><br />

@@ -13,13 +13,14 @@ var getUsers = function() {
   return userData;
 };
 
-var getUser = function() {
-  return userInfo.find({}, function(err, resArray) {
+var getUser = function(userId) {
+  return userInfo.find({userId:userId}, function(err, resArray) {
     if (err) throw err;
     if (resArray) {
       //console.log("suer data",resArray);
       return resArray;
     } else {
+      console.log("Error:", err);
       return null;
     }
   });

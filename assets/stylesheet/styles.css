@@ -207,3 +207,7 @@ select {
 .topicList:hover {
   text-decoration-color: green;
 }
+
+.invalid{
+  color:red;
+}

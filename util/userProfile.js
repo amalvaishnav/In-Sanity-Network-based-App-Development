@@ -3,6 +3,8 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/myEvents");
 var userConnnectionInfo = require("../models/userConnection");
 var getConnections = require("../util/connectionDB");
+var getLoginData = require("../models/login");
+var getUserData = require("../models/user");
 //Adding a connection || Updating a connection
 var addUpdateConn = async function(ConnId, rsvp, userObj) {
   //var userConnObj = [];
@@ -38,7 +40,7 @@ var addUpdateConn = async function(ConnId, rsvp, userObj) {
     return true;
   } else if (getConnectionPerUser.length == 0) {
     var connectionData = await getConnections.getConnection(ConnId);
-    if (!connectionData[0]){
+    if (!connectionData[0]) {
       return false;
     }
     console.log("data connectiondatatata", connectionData);
@@ -64,7 +66,7 @@ var removeConnection = async function(ConnId, userId) {
       if (err) {
         console.log("rem err", err);
         return 0;
-      } else if(res){
+      } else if (res) {
         return res.deletedCount;
       }
     }
@@ -75,5 +77,90 @@ var emptyProfile = function(sessionTemp) {
   return [];
 };
 
+var getLoginCond = async function(userInput) {
+  return getLoginData.find(
+    { userName: userInput.userName, password: userInput.password },
+    function(err, conn) {
+      if (err) throw err;
+
+      if (conn) {
+        return conn;
+      } else {
+        console.log("login error", err);
+        return null;
+      }
+    }
+  );
+};
+
+var getSignupCond = async function(signupObj) {
+  console.log("signup util", signupObj);
+  const loginData = {
+    userId:signupObj.email,
+    userName: signupObj.email,
+    password: signupObj.password
+  };
+  const userData = {
+    userId:signupObj.email,
+    firstName: signupObj.firstName,
+    lastName: signupObj.lastName,
+    email: signupObj.email
+  };
+
+  var updateRes1 = "";
+  var updateRes2 = "";
+  const retUserData = await getUserData.findOneAndUpdate(
+    { email: userData.email },
+    { $set: { userId: userData.userId,firstName: userData.firstName, lastName: userData.lastName } },
+    { new: true },
+    function(err, res) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("findUpdate 1", res);
+        if (res){
+          updateRes1 = true;
+        }
+        else{
+          updateRes1= null;
+        }
+      }
+    }
+  );
+  if(updateRes1==null){
+    var doc = new getUserData(userData); 
+    console.log("final user data doc", doc);
+    await doc.save();
+    
+    var doc = new getLoginData(loginData);
+    console.log("final login data doc", doc);
+    await doc.save();
+    console.log('2 docs saved');
+    return true;
+  }
+  else{
+    return false;
+  }
+
+
+
+// const retLoginData = await getLoginData.findOneAndUpdate(
+//   { userName: loginData.userName },
+//   { $set: { password:loginData.password } },
+//   { new: true },
+//   function(err, res) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log("findUpdate 2", res);
+//       updateRes2 = res;
+//     }
+//   }
+// );
+
+};
+
 module.exports.removeConnection = removeConnection;
 module.exports.addUpdateConn = addUpdateConn;
+module.exports.getSignupCond = getSignupCond;
+module.exports.getLoginCond = getLoginCond;

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./../assets/stylesheet/styles.css"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
+      <div class="main mainConnection">
+        <h2>Sign Up Now</h2>
+        <h3 class="invalid"><%= invalidText %></h3>
+        <form id="connectionForm" method="POST" action="/login">
+          <label for="firstName">First Name </label>
+          <input id="firstName" type="text" name="firstName" placeholder="First Name" />
+          <br />
+          <label for="lastName">Last Name </label>
+          <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+          /><br />
+          <label for="email">Email </label>
+          <input
+            id="email"
+            type="text"
+            name="email"
+            placeholder="email"
+          />This will be your UserName<br />
+          <label for="password">Password </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="password"
+          /><br />
+          <input class="butSubmit" type="submit" value="Sign Up" />
+        </form>
+      </div>
+      <% include partials/footer.ejs%>
+    </div>
+  </body>
+</html>

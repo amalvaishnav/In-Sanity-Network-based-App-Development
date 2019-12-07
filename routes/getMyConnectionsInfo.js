@@ -6,6 +6,8 @@ var router = express.Router();
 var session = require("express-session");
 var bodyParser = require("body-parser");
 router.use(session({ secret: "abcd" }));
+var alert = require('alert-node');
+const { check, validationResult } = require("express-validator");
 
 var userProfData = require("./../util/userProfile");
 //Maintains the login session for all the pages since this is the page which directs
@@ -13,10 +15,43 @@ var userProfData = require("./../util/userProfile");
 var getConnectionPerUser = require("./../util/connectionPerUser");
 
 var getLoginSession = async function(req, res, next) {
-  var getUser = require("./../util/userDB");
-  var userData = await getUser.getUser(); //Choosing the first user inside that function's definition
+  //var getUser = require("./../util/userDB");
+  //var userData = await getUser.getUser(); //Choosing the first user inside that function's definition
   //console.log("user data", userData);
+  var userInputs=req.body;
 
+  if(userInputs.userName && userInputs.password){
+
+    var isLogin = await userProfData.getLoginCond(userInputs);
+    var getUserObj = require('../util/userDB')
+
+    if(isLogin.length >=1){
+      isLoginFlag = true;
+      var userObj = await getUserObj.getUser(isLogin[0].userId);
+      req.session.theUser = userObj[0];
+      console.log('req the user',req.session.theUser );
+      req.session.loginFlag = true;
+      req.session.incorrectInput = false;
+      console.log('login success bro');
+    }
+    else{
+      console.log('login fail');
+      req.session.theUser = null;
+      req.session.loginFlag = false;
+      req.session.incorrectInput = true;
+      req.session.invalidText = "Either Username or Password are Invalid"
+      // res.render('login',{loginFlag:req.session.loginFlag, invalidText:req.session.invalidText});
+
+    }
+  }
+  else if(req.session.loginFlag == true){
+    //
+  }
+  else{
+    req.session.loginFlag = false;
+    req.session.invalidText = "Either Username or Password are missing"
+    // res.render('login',{loginFlag:req.session.loginFlag, invalidText:invalidText});
+  }
   //gets all conections for user. The function is fetched from connectionPerUser.js in Util folder
 
   // res.getUserConnectionData= getUserConnectionData;
@@ -27,17 +62,17 @@ var getLoginSession = async function(req, res, next) {
   //   req.session.userConnections = getUserConnectionData;
   // }
 
-  req.session.theUser = userData[0];
-  req.session.loginFlag = true;
+  // req.session.theUser = userData[0];
+  // req.session.loginFlag = true;
   next();
 };
 
-var getUserProfile = require("./../util/userProfile");
 router.use(getLoginSession);
 
 router.get("/", async function(req, res) {
   var loginFlag = false;
   if (req.session.loginFlag) {
+    console.log('cons',req.session.loginFlag);
     loginFlag = true;
   }
   var q = req.query;
@@ -79,6 +114,10 @@ router.get("/", async function(req, res) {
       String(q.rsvp).includes("No")
     ) {
       console.log("q.rsvp", q.rsvp);
+      if(req.session.loginFlag == false){
+        invalidText = "Please login before you RSVP"
+        res.render('login',{loginFlag: false, invalidText:invalidText});
+      }
       var connection_flag = await userProfData.addUpdateConn(
         q.connectionId,
         q.rsvp,
@@ -105,5 +144,16 @@ router.get("/", async function(req, res) {
     res.render("404", { loginFlag: false });
   }
 });
+
+router.post("/",async function (req, res){
+  console.log('loginflag post', req.session.loginFlag);
+  if(req.session.loginFlag){
+    var userConn = await getConnectionPerUser.getConnectionPerUser(req.session.theUser.userId);
+    res.render('myConnections',{myConnection_data:userConn, loginFlag: req.session.loginFlag})
+  }
+  else{
+    res.render('login',{loginFlag:false, invalidText:req.session.invalidText})
+  }
+})
 
 module.exports = router;

@@ -2,14 +2,25 @@ use myEvents
 db.createCollection("userData")
 db.createCollection("connectionData")
 db.createCollection("connectionPerUserData")
-db.userData.insert([{
-    "userId": "u1111",
-    "firstName": "Amal",
-    "lastName":"Vaishnav",
-    "email":"avaishna@uncc.edu"
+db.createCollection("loginData")
+db.loginData.insert([{
+  "userId":"amal@a.in",
+  "userName":"amal@a.in",
+  "password":"amal"
 },
 {
-    "userId": "u2222",
+  "userId":"db@db.edu",
+  "userName":"db@db.edu",
+  "password":"david"
+}])
+db.userData.insert([{
+    "userId": "amal@a.in",
+    "firstName": "Amal",
+    "lastName":"Vaishnav",
+    "email":"amal@a.in"
+},
+{
+    "userId": "db@db.edu",
     "firstName": "David",
     "lastName":"Beckhem",
     "email":"db@db.edu"
@@ -85,7 +96,7 @@ db.connectionPerUserData.insert([
         "topic": "Healthcare",
         "ConnName": "Regular Checkup",
         "rsvp": "No",
-        "userId":"u2222",
+        "userId":"db@db.edu",
         "uniqueId":1177,
         "ConnId":"nbad_22212"
     },
@@ -93,7 +104,7 @@ db.connectionPerUserData.insert([
         "topic": "Fitness",
         "ConnName": "Nutrients-diet awareness Conference",
         "rsvp": "Maybe",
-        "userId":"u2222",
+        "userId":"db@db.edu",
         "uniqueId":1133,
         "ConnId":"nbad_11111"
     },
@@ -101,7 +112,7 @@ db.connectionPerUserData.insert([
         "topic": "Healthcare",
         "ConnName": "Regular Checkup",
         "rsvp": "No",
-        "userId":"u1111",
+        "userId":"amal@a.in",
         "uniqueId":2211 ,
         "ConnId":"nbad_22212"     
     },
@@ -109,7 +120,7 @@ db.connectionPerUserData.insert([
         "topic": "Fitness",
         "ConnName": "Nutrients-diet awareness Conference",
         "rsvp": "Maybe",
-        "userId":"u1111",
+        "userId":"amal@a.in",
         "uniqueId":8811,
         "ConnId":"nbad_11111" 
     }
