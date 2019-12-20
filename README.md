@@ -1,5 +1,6 @@
 # In-Sanity-Network-based-App-Development
 In-Sanity: NBAD Project Fall 19
+
 A Healthcare Event scheduling tool. Admin can host events and publish it. Events can be added, updated and deleted. Then, a user of the application can
 RSVP to those created events. That RSVP can be updated or deleted too. 
 
