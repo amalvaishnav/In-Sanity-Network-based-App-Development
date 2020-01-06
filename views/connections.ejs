@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
+      <%- include('partials/header.ejs', {loginFlag: loginFlag, user:user}) %>
       <div class="main connectMain">
         <% unique_topic.forEach(function(topic){ %>
         <h2><%= topic %></h2>

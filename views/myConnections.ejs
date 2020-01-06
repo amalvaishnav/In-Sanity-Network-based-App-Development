@@ -11,9 +11,10 @@
   </head>
   <body>
     <div class="container">
-      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
+      <%- include('partials/header.ejs', {loginFlag: loginFlag, user:user}) %>
       <div class="main">
         <h2>All Connections</h2>
+       
         <table>
           <tr>
             <th>Connection</th>
@@ -38,6 +39,7 @@
           </tr>
           <% }); %>
         </table>
+        <h2>Note: You can add more going into 'Connections' Page. </h2>
       </div>
       <% include partials/footer.ejs%>
     </div>

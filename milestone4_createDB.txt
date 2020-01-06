@@ -6,12 +6,12 @@ db.createCollection("loginData")
 db.loginData.insert([{
   "userId":"amal@a.in",
   "userName":"amal@a.in",
-  "password":"amal"
+  "password":"2c10b5f299c67d66bfde93afb9ddaf982078f306bc838ac2ed43415e484e95a14ac14f708f3c10bba2730c8b14e3c3a161b4bc86a2f22491022bba7830e8ea2697ac699cad9d7db30d3a20e658b86d0e0b8c9e6bec7d5d9cca3a4835d0dd06a5718acdf923a60023"
 },
 {
-  "userId":"db@db.edu",
-  "userName":"db@db.edu",
-  "password":"david"
+  "userId":"hughjackman@uncc.edu",
+  "userName":"hughjackman@uncc.edu",
+  "password":"1a108490b389cd1f36a7b799ef40bcc35cf52bf1f3b3c0e05826dca7a0d8852d18d445c37b5879de845f501db746d7140eb6673441095481dc2366cf158fd76a737872164dbf034d348108a7dcf8fd52d09caab6a0a0e2b741588003a662e5bf5b2c29ece52e4a2a46d6fb"
 }])
 db.userData.insert([{
     "userId": "amal@a.in",
@@ -20,10 +20,10 @@ db.userData.insert([{
     "email":"amal@a.in"
 },
 {
-    "userId": "db@db.edu",
-    "firstName": "David",
-    "lastName":"Beckhem",
-    "email":"db@db.edu"
+    "userId": "hughjackman@uncc.edu",
+    "firstName": "Hugh",
+    "lastName":"Jackman",
+    "email":"hughjackman@uncc.edu"
 }])
 db.connectionData.insert([
   {
@@ -96,7 +96,7 @@ db.connectionPerUserData.insert([
         "topic": "Healthcare",
         "ConnName": "Regular Checkup",
         "rsvp": "No",
-        "userId":"db@db.edu",
+        "userId":"hughjackman@uncc.edu",
         "uniqueId":1177,
         "ConnId":"nbad_22212"
     },
@@ -104,7 +104,7 @@ db.connectionPerUserData.insert([
         "topic": "Fitness",
         "ConnName": "Nutrients-diet awareness Conference",
         "rsvp": "Maybe",
-        "userId":"db@db.edu",
+        "userId":"hughjackman@uncc.edu",
         "uniqueId":1133,
         "ConnId":"nbad_11111"
     },

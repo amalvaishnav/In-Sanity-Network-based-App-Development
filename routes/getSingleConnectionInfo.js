@@ -11,12 +11,23 @@ router.get("/", async function(req, res) {
     );
     console.log("singledata", connectionSingleData);
     if (connectionSingleData[0] == null) {
-      res.render("404", { loginFlag: req.session.loginFlag });
+      res.render("404", { loginFlag: req.session.loginFlag , user:""});
     }
-    res.render("connection", {
-      connectionObj: connectionSingleData[0],
-      loginFlag: req.session.loginFlag
-    });
+    if (req.session.loginFlag == true){
+      res.render("connection", {
+        connectionObj: connectionSingleData[0],
+        loginFlag: req.session.loginFlag,
+        user:req.session.theUser.firstName
+      });
+    }
+    else{
+      res.render("connection", {
+        connectionObj: connectionSingleData[0],
+        loginFlag: req.session.loginFlag,
+        user:""
+      });
+    }
+   
   } else {
     res.send("Invalid info");
   }

@@ -38,29 +38,60 @@ app.use(function(req, res, next) {
   next();
 });
 app.get("/", function(req, res) {
-  res.render("index", { loginFlag: req.session.loginFlag });
+  if(req.session.loginFlag){
+    user = req.session.theUser.firstName
+  }
+  else{
+    user = ""
+  }
+  res.render("index", { loginFlag: req.session.loginFlag,user: user});
 });
 
 app.get("/index", function(req, res) {
   //console.log(req.query.params);
-  res.render("index", { loginFlag: req.session.loginFlag });
+  if(req.session.loginFlag == true){
+    user = req.session.theUser.firstName
+    console.log('userLog', user);
+  }
+  else{
+    user = ""
+  }
+  res.render("index", { loginFlag: req.session.loginFlag, user:user });
 });
 app.get("/logout", function(req, res) {
   req.session.destroy();
-  res.render("index", { loginFlag: false });
+  res.render("index", { loginFlag: false, user:""});
 });
 app.get("/about", function(req, res) {
-  res.render("about", { loginFlag: req.session.loginFlag });
+  if(req.session.loginFlag){
+    user = req.session.theUser.firstName
+  }
+  else{
+    user = ""
+  }
+  res.render("about", { loginFlag: req.session.loginFlag, user: user });
 });
 
 app.get("/contact", function(req, res) {
-  res.render("contact", { loginFlag: req.session.loginFlag });
+  if(req.session.loginFlag){
+    user = req.session.theUser.firstName
+  }
+  else{
+    user = ""
+  }
+  res.render("contact", { loginFlag: req.session.loginFlag, user:user });
 });
 
 // app.use("newConnection", newConnectionForm);
 
 app.get("/newConnection", function(req, res) {
-  res.render("newConnection", { loginFlag: req.session.loginFlag });
+  if(req.session.loginFlag){
+    user = req.session.theUser.firstName
+  }
+  else{
+    user = ""
+  }
+  res.render("newConnection", { loginFlag: req.session.loginFlag, user: user });
 });
 
 app.use("/newConnectionForm", newConnectionForm);
@@ -75,7 +106,7 @@ app.use("/login", loginForm);
 app.use("/signup", signupForm);
 
 app.get("/*", function(req, res) {
-  res.render("404", { loginFlag: req.session.loginFlag });
+  res.render("404", { loginFlag: req.session.loginFlag, user:'' });
 });
 
 app.listen(8080, function() {

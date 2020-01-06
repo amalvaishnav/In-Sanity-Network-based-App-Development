@@ -39,6 +39,9 @@ router.post("/",
         console.log("er len", errors.array().length);
         
         for (i = 0; i < errors.array().length; i++) {
+            if (errors.array()[i].msg == "Invalid value"){
+                continue
+            }
           msg = msg + "\n" + (i+1) +" --"+errors.array()[i].msg;
         }
         console.log(msg);

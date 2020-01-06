@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <%- include('partials/header.ejs', {loginFlag: loginFlag}) %>
+      <%- include('partials/header.ejs', {loginFlag: loginFlag, user:user}) %>
       <div class="main mainConnection">
         <h2>Create New Connection</h2>
         <form id="connectionForm" method="POST" action="/newConnectionForm">
@@ -29,7 +29,7 @@
           <label for="details">Details </label>
           <textarea
             rows="4"
-            cols="50"
+            cols="30"
             id="details"
             name="details"
             form="connectionForm"
@@ -44,7 +44,7 @@ description</textarea
             placeholder="location"
           /><br />
           <label for="date">Date </label>
-          <input type="date" name="date" /><br />
+          <input id="date" type="date" name="date" /><br />
           <label for="time">Time </label>
           <input id="time" type="time" name="time" /> (00:00 to 23:59)<br />
           <input class="butSubmit" type="submit" value="Create Connection" />
